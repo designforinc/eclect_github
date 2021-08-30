@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/* Vars
+--------------------- */
+/*
+Noto Sans Japanese Weight
+100	Thin
+200	Light
+300	DemiLight
+400	Regular
+500	Medium
+700	Bold
+900	Black
+*/
+/* ソースサイズ */
+/* Mixin
+--------------------- */
+/* Extend
+--------------------- */
+/* Clearfix */
+/* Ellipsis */
+/* PseudoTable */
+/* Inner */
+/* Visual
+--------------------- */
+.cmn-visual::before {
+  background-image: url("../img/company/visual_img_01.svg");
+}
+
+.mod-table--row th {
+  width: 232px;
+}
+
+/* Map
+--------------------- */
+.company-map {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+  .company-map {
+    flex-direction: column;
+  }
+}
+
+.company-map__address {
+  padding-right: 24px;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .company-map__address {
+    margin-bottom: 24px;
+    padding-right: 0;
+  }
+}
+
+.company-map__btn {
+  flex-shrink: 0;
+  width: 80px;
+}
+@media screen and (max-width: 768px) {
+  .company-map__btn {
+    width: 100%;
+  }
+}

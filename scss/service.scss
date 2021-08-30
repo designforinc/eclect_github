@@ -1,0 +1,325 @@
+@charset "utf-8";
+@import "mixin";
+
+
+/* Visual
+--------------------- */
+
+.cmn-visual {
+	&::before {
+		background-image: url("../img/service/visual_img_01.svg");
+	}
+}
+
+
+/* Tag
+--------------------- */
+
+.service-tag {
+	margin-bottom: 16px;
+	> span {
+		background: #24ADBF;
+		color: #fff;
+		display: inline-block;
+		font-size: 1.4rem;
+		line-height: 1;
+		padding: 5px 16px;
+	}
+}
+
+
+/* Btn More
+--------------------- */
+
+.service__btn-more {
+	margin-top: 40px;
+	width: 256px;
+	@include max-screen($breakpoint-sp) {
+		margin-top: 24px;
+		width: 100%;
+	}
+}
+
+
+/* Items
+--------------------- */
+
+.service-items {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-bottom: -(32 / 1120 * 100%);
+	@include max-screen($breakpoint-sp) {
+		flex-direction: column;
+		margin-bottom: 0;
+	}
+	figure {
+		margin-bottom: 16px;
+		img {
+			width: 100%;
+		}
+	}
+}
+.service-items__item {
+	background: #FFF;
+	box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+	margin-bottom: (32 / 1120 * 100%);
+	margin-right: ((1120 - 352 * 3) / 2 / 1120 * 100%);
+	padding: 24px 32px 72px;
+	position: relative;
+	width: (352 / 1120 * 100%);
+	@media screen and (max-width: 1120px) {
+		padding: (24 / 1120 * 100vw) (32 / 1120 * 100vw) (72 / 1120 * 100vw);
+	}
+	@include max-screen($breakpoint-sp) {
+		margin: 0 0 24px;
+		padding: 24px 32px 80px;
+		width: 100%;
+	}
+	&.hide_btn {
+		padding-bottom: 32px;
+		.service-items__item__description {
+			margin-bottom: 0!important;
+		}
+		.service-items__btn-more {
+			display: none;
+		}
+	}
+	&:last-child {
+		@include max-screen($breakpoint-sp) {
+			margin-bottom: 0;
+		}
+	}
+	&:nth-child(3n) {
+		margin-right: 0;
+	}
+}
+.service-items__item__title {
+	font-size: 2.4rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-bottom: 16px;
+	text-align: center;
+	@media screen and (max-width: 1120px) {
+		font-size: (24 / 1120 * 100vw);
+	}
+	@include max-screen($breakpoint-sp) {
+		font-size: 2rem;
+	}
+}
+.service-items__item__copy {
+	font-size: 2rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-bottom: 16px;
+	@media screen and (max-width: 1120px) {
+		font-size: (20 / 1120 * 100vw);
+	}
+	@include max-screen($breakpoint-sp) {
+		font-size: 1.8rem;
+	}
+}
+.service-items__item__description {
+	font-size: 1.6rem;
+	margin-bottom: 16px;
+	@media screen and (max-width: 1120px) {
+		font-size: (16 / 1120 * 100vw);
+	}
+	@include max-screen($breakpoint-sp) {
+		font-size: 1.4rem;
+	}
+	p {
+		margin-bottom: 0;
+	}
+}
+.service-items__btn-more {
+	bottom: 32px;
+	left: 0;
+	padding: 0 32px;
+	position: absolute;
+	width: 100%;
+	@media screen and (max-width: 1120px) {
+		bottom: (32 / 1120 * 100vw);
+		padding: 0 (32 / 1120 * 100vw);
+	}
+	@include max-screen($breakpoint-sp) {
+		bottom: 32px;
+		padding: 0 32px;
+	}
+	a {
+		width: 100%;
+		@media screen and (max-width: 1120px) {
+			border-radius: (20 / 1120 * 100vw);
+			font-size: (16 / 1120 * 100vw);
+		}
+		@include max-screen($breakpoint-sp) {
+			border-radius: 24px;
+			font-size: 1.4rem;
+		}
+		span {
+			@media screen and (max-width: 1120px) {
+				background-size: (10 / 1120 * 100vw) auto;
+				padding: (16 / 1120 * 100vw) (16 / 1120 * 100vw) (12 / 1120 * 100vw) 0;
+			}
+			@include max-screen($breakpoint-sp) {
+				background-size: 10px auto;
+				padding: 17px 16px 17px 0;
+			}
+		}
+	}
+}
+
+
+/* Single
+--------------------- */
+
+/* .service-sg-header */
+.service-sg-header {
+	@extend %inner;
+	margin-bottom: 80px;
+	text-align: center;
+	@include max-screen($breakpoint-sp) {
+		margin-bottom: 40px;
+		padding: 0 6.4vw;
+	}
+	figure {
+		margin-bottom: 40px;
+		img {
+			@include max-screen($breakpoint-sp) {
+				width: 100%;
+			}
+		}
+	}
+}
+.service-sg-header__tag {
+	text-align: left;
+}
+.service-sg-header__txt1 {
+	font-size: 3.2rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-bottom: 8px;
+	@include max-screen($breakpoint-sp) {
+		font-size: 2rem;
+	}
+}
+.service-sg-header__txt2 {
+	font-size: 1.6rem;
+	@include max-screen($breakpoint-sp) {
+		font-size: 1.4rem;
+	}
+}
+
+/* .service-sg-step */
+.service-sg-step {
+	margin-bottom: 52px;
+	@include max-screen($breakpoint-sp) {
+		margin-bottom: 4px;
+	}
+}
+.service-sg-step__items {
+	margin-top: 80px;
+	@include max-screen($breakpoint-sp) {
+		margin-top: 0;
+	}
+	dt {
+		background: #FFF;
+		box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+		margin-bottom: 28px;
+		padding: 28px 0;
+		position: relative;
+		width: (352 / 1120 * 100%);
+		@include max-screen($breakpoint-sp) {
+			margin-bottom: 16px;
+			position: static;
+			width: 100%;
+		}
+		&::after {
+			background: #115F73 url("../img/cmn_ico_arrow3.svg") 50% 50% no-repeat;
+			border-radius: 20px;
+			bottom: -48px;
+			content: '';
+			height: 40px;
+			left: 50%;
+			margin-left: -20px;
+			position: absolute;
+			width: 40px;
+			@include max-screen($breakpoint-sp) {
+				border-radius: 22px;
+				bottom: -22px;
+				height: 44px;
+				margin-left: -22px;
+				width: 44px;
+			}
+		}
+	}
+	dd {
+		width: (736 / 1120 * 100%);
+		@include max-screen($breakpoint-sp) {
+			width: 100%;
+		}
+		p {
+			margin-bottom: 28px;
+			@include max-screen($breakpoint-sp) {
+				margin-bottom: 36px;
+			}
+		}
+	}
+	dl {
+		border-bottom: 1px dotted #CCC;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 28px;
+		@include max-screen($breakpoint-sp) {
+			flex-direction: column;
+			margin-bottom: 36px;
+			position: relative;
+		}
+		&:last-child {
+			border-bottom: 0;
+			margin-bottom: 0;
+			padding-bottom: 0;
+			dt::after {
+				display: none;
+			}
+		}
+	}
+}
+.service-sg-step__num {
+	background: #24ADBF;
+	color: #FFF;
+	font-size: 1.4rem;
+	line-height: 1;
+	left: 0;
+	padding: 5px 0;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 80px;
+}
+.service-sg-step__title {
+	font-size: 2rem;
+	font-weight: 500;
+	line-height: 1.2;
+	padding: 0 8px;
+	text-align: center;
+	@include max-screen($breakpoint-sp) {
+		font-size: 1.8rem;
+	}
+}
+
+/* .service-sg-btn-back */
+.service-sg-btn-back {
+	margin-bottom: 80px;
+	text-align: center;
+	@include max-screen($breakpoint-sp) {
+		margin-bottom: 40px;
+		padding: 0 6.4vw;
+	}
+	a {
+		width: 384px;
+		@include max-screen($breakpoint-sp) {
+			width: 100%;
+		}
+	}
+}

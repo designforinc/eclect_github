@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="case_slider_btn_prev" transform="translate(40 40) rotate(180)">
+    <rect id="長方形_130" data-name="長方形 130" width="40" height="40" rx="20" fill="none"/>
+    <g id="inside" transform="translate(12 12)">
+      <g id="icon_arrow-normal">
+        <rect id="black" width="16" height="16" fill="none"/>
+        <path id="Arrow" d="M8.146,6.893,7.016,7.952a.554.554,0,0,1-.932-.4V1.107a1.107,1.107,0,1,0-2.213,0V7.531a.553.553,0,0,1-.935.4L1.857,6.9A1.1,1.1,0,1,0,.345,8.5L3.5,11.473a2.212,2.212,0,0,0,3.047-.007L9.659,8.494a1.1,1.1,0,0,0-1.514-1.6Z" transform="translate(2 13) rotate(-90)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

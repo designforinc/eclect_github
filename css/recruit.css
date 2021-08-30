@@ -1,0 +1,140 @@
+@charset "UTF-8";
+/* Vars
+--------------------- */
+/*
+Noto Sans Japanese Weight
+100	Thin
+200	Light
+300	DemiLight
+400	Regular
+500	Medium
+700	Bold
+900	Black
+*/
+/* ソースサイズ */
+/* Mixin
+--------------------- */
+/* Extend
+--------------------- */
+/* Clearfix */
+/* Ellipsis */
+/* PseudoTable */
+/* Inner */
+/* Visual
+--------------------- */
+.cmn-visual::before {
+  background-image: url("../img/recruit/visual_img_01.svg");
+}
+
+/* Tag
+--------------------- */
+.seminar-tag, .mod-header__category, .seminar-items__item__tag {
+  background: #24ADBF;
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  min-width: 50px;
+  padding: 5px 16px;
+  text-align: center;
+}
+
+/* items
+--------------------- */
+.seminar-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: -2.8571428571%;
+}
+@media screen and (max-width: 768px) {
+  .seminar-items {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+}
+
+.seminar-items__item {
+  background: #FFF;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+  margin: 0 2.8571428571% 2.8571428571% 0;
+  padding: 24px 32px 76px;
+  position: relative;
+  width: 48.5714285714%;
+}
+@media screen and (max-width: 768px) {
+  .seminar-items__item {
+    margin: 0 0 24px;
+    padding: 24px 32px 32px;
+    width: 100%;
+  }
+}
+.seminar-items__item:nth-child(2n) {
+  margin-right: 0;
+}
+@media screen and (max-width: 768px) {
+  .seminar-items__item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.seminar-items__item__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.seminar-items__item__tag {
+  width: auto;
+}
+
+.seminar-items__item__date {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.seminar-items__item__title {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+@media screen and (max-width: 768px) {
+  .seminar-items__item__title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+}
+
+.seminar-items__item__excerpt {
+  margin-bottom: 16px;
+}
+@media screen and (max-width: 768px) {
+  .seminar-items__item__excerpt {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+}
+
+.seminar-items__item__btn {
+  bottom: 32px;
+  left: 32px;
+  position: absolute;
+  width: calc(100% - 64px);
+}
+@media screen and (max-width: 768px) {
+  .seminar-items__item__btn {
+    bottom: 0;
+    left: 0;
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* Single
+--------------------- */
+/* .mod-check */
+.mod-check {
+  margin: 0 auto;
+  max-width: 736px;
+}

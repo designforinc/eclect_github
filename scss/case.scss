@@ -1,0 +1,133 @@
+@charset "utf-8";
+@import "mixin";
+
+
+/* Visual
+--------------------- */
+
+.cmn-visual {
+	&::before {
+		background-image: url("../img/case/visual_img_01.svg");
+	}
+}
+
+
+/* Tag
+--------------------- */
+
+.case-tag {
+	background: #24ADBF;
+	color: #fff;
+	font-size: 1.4rem;
+	line-height: 1;
+	min-width: 50px;
+	padding: 5px 16px;
+	text-align: center;
+}
+
+
+/* items
+--------------------- */
+
+.case-items {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-bottom: -(32 / 1120 * 100%);
+	@include max-screen($breakpoint-sp) {
+		flex-direction: column;
+		margin-bottom: 0;
+	}
+}
+.case-items__item {
+	background: #FFF;
+	box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+	margin: 0 (32 / 1120 * 100%) (32 / 1120 * 100%) 0;
+	position: relative;
+	width: (544 / 1120 * 100%);
+	@include max-screen($breakpoint-sp) {
+		margin: 0 0 24px;
+		width: 100%;
+	}
+	&:nth-child(2n) {
+		margin-right: 0;
+	}
+	&:last-child {
+		@include max-screen($breakpoint-sp) {
+			margin-bottom: 0;
+		}
+	}
+	figure {
+		img {
+			width: 100%;
+		}
+	}
+}
+.case-items__item__inner {
+	padding: 24px 32px (72 + 16 * 1.4 * 2px);
+	@include max-screen($breakpoint-sp) {
+		padding: 24px 32px 32px; 
+	}
+}
+.case-items__item__tag {
+	@extend .case-tag;
+	left: 8px;
+	position: absolute;
+	top: 8px;
+}
+.case-items__item__title {
+	font-size: 2rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-bottom: 16px;
+	@include max-screen($breakpoint-sp) {
+		font-size: 1.8rem;
+		line-height: (21.6 / 18);
+	}
+}
+.case-items__item__company {
+	bottom: 72px;
+	left: 32px;
+	height: (16 * 1.4 * 2px);
+	margin-bottom: 0;
+	overflow: hidden;
+	position: absolute;
+	@include max-screen($breakpoint-sp) {
+		bottom: 0;
+		font-size: 1.4rem;
+		height: auto;
+		left: 0;
+		margin-bottom: 16px;
+		position: relative;
+	}
+}
+.case-items__item__btn {
+	bottom: 32px;
+	left: 32px;
+	position: absolute;
+	width: calc(100% - 64px);
+	@include max-screen($breakpoint-sp) {
+		bottom: 0;
+		left: 0;
+		position: relative;
+		width: 100%;
+	}
+}
+
+
+/* Single
+--------------------- */
+
+.mod-header__category {
+	@extend .case-tag;
+}
+.case-sg-hd {
+	font-size: 2.4rem;
+	font-weight: 500;
+	line-height: (28.8 / 24);
+	margin-bottom: 40px;
+	@include max-screen($breakpoint-sp) {
+		font-size: 1.8rem;
+		margin-bottom: 24px;
+	}
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g id="header_btn_menu" transform="translate(-311)">
+    <rect id="長方形_224" data-name="長方形 224" width="64" height="64" transform="translate(311)" fill="none"/>
+    <path id="パス_61" data-name="パス 61" d="M1,0H13a1,1,0,0,0,1-1h0a1,1,0,0,0-1-1H1A1,1,0,0,0,0-1H0A1,1,0,0,0,1,0ZM1-6H13a1,1,0,0,0,1-1h0a1,1,0,0,0-1-1H1A1,1,0,0,0,0-7H0A1,1,0,0,0,1-6ZM0-13H0a1,1,0,0,0,1,1H13a1,1,0,0,0,1-1h0a1,1,0,0,0-1-1H1A1,1,0,0,0,0-13Z" transform="translate(336 39)" fill="#115f73"/>
+  </g>
+</svg>

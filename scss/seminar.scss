@@ -1,0 +1,217 @@
+@charset "utf-8";
+@import "mixin";
+
+
+/* Visual
+--------------------- */
+
+.cmn-visual {
+	&::before {
+		background-image: url("../img/seminar/visual_img_01.svg");
+	}
+}
+
+
+/* Tag
+--------------------- */
+
+.seminar-tag {
+	background: #24ADBF;
+	color: #fff;
+	font-size: 1.4rem;
+	line-height: 1;
+	min-width: 50px;
+	padding: 5px 16px;
+	text-align: center;
+}
+
+
+/* items
+--------------------- */
+
+.seminar-items {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-bottom: -(32 / 1120 * 100%);
+	@include max-screen($breakpoint-sp) {
+		flex-direction: column;
+		margin-bottom: 0;
+	}
+}
+.seminar-items__item {
+	background: #FFF;
+	box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+	margin: 0 (32 / 1120 * 100%) (32 / 1120 * 100%) 0;
+	padding: 24px 32px 76px;
+	position: relative;
+	width: (544 / 1120 * 100%);
+	@include max-screen($breakpoint-sp) {
+		margin: 0 0 24px;
+		padding: 24px 32px 32px; 
+		width: 100%;
+	}
+	&:nth-child(2n) {
+		margin-right: 0;
+	}
+	&:last-child {
+		@include max-screen($breakpoint-sp) {
+			margin-bottom: 0;
+		}
+	}
+}
+.seminar-items__item__header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 16px;
+	@include max-screen($breakpoint-sp) {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+}
+.seminar-items__item__tag {
+	@extend .seminar-tag;
+	width: auto;
+	@include max-screen($breakpoint-sp) {
+		margin-bottom: 8px;
+	}
+}
+.seminar-items__item__date {
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+.seminar-items__item__title {
+	font-size: 2.4rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-bottom: 16px;
+	@include max-screen($breakpoint-sp) {
+		font-size: 1.8rem;
+		line-height: (21.6 / 18);
+	}
+}
+.seminar-items__item__excerpt {
+	margin-bottom: 16px;
+	@include max-screen($breakpoint-sp) {
+		font-size: 1.4rem;
+		margin-bottom: 16px;
+	}
+}
+.seminar-items__item__btn {
+	bottom: 32px;
+	left: 32px;
+	position: absolute;
+	width: calc(100% - 64px);
+	@include max-screen($breakpoint-sp) {
+		bottom: 0;
+		left: 0;
+		position: relative;
+		width: 100%;
+	}
+}
+
+
+/* Single
+--------------------- */
+
+.mod-header__category {
+	@extend .seminar-tag;
+}
+
+/* .seminar-sg-lecturers */
+.seminar-sg-lecturers {
+	display: flex;
+	flex-wrap: wrap;
+	@include max-screen($breakpoint-sp) {
+		flex-direction: column;
+	}
+}
+.seminar-sg-lecturers__item {
+	box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: (32 / 1120 * 100%);
+	margin-right: (32 / 1120 * 100%);
+	width: (352 / 1120 * 100%);
+	@include max-screen($breakpoint-sp) {
+		margin-bottom: 24px;
+		margin-right: 0;
+		width: 100%;
+	}
+	&:nth-child(3n) {
+		margin-right: 0;
+	}
+	figure {
+		width: (120 / 352 * 100%);
+		@include max-screen($breakpoint-sp) {
+			width: (90 / 326 * 100%);
+		}
+		img {
+			width: 100%;
+		}
+	}
+}
+.seminar-sg-lecturers__content {
+	background: #FFF;
+	padding: 24px;
+	width: (232 / 352 * 100%);
+	@include max-screen($breakpoint-sp) {
+		padding: 16px 24px;
+		width: (236 / 326 * 100%);
+	}
+}
+.seminar-sg-lecturers__name {
+	font-size: 2.4rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-bottom: 16px;
+	@include max-screen($breakpoint-sp) {
+		font-size: 1.8rem;
+		margin-bottom: 8px;
+	}
+}
+.seminar-sg-lecturers__company {
+	font-size: 1.6rem;
+	@include max-screen($breakpoint-sp) {
+		font-size: 1.4rem;
+	}
+	p {
+		margin-bottom: 0;
+	}
+}
+.seminar-sg-lecturers__btn {
+	margin: (80 - 32px) 0 80px;
+	text-align: center;
+	@include max-screen($breakpoint-sp) {
+		margin: 16px 6.4vw 40px;
+	}
+}
+
+
+/* .mod-table
+--------------------- */
+
+.mod-table {
+	th {
+		width: 232px;
+		@include max-screen($breakpoint-sp) {
+			width: 100%;
+		}
+	}
+}
+
+
+/* .seminar-contact
+--------------------- */
+
+.seminar-contact {
+	th {
+		padding: 12px 24px!important;
+		@include max-screen($breakpoint-sp) {
+			padding: 16px!important;
+		}
+	}
+}
+
+

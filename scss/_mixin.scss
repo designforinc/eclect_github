@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+
+/* Vars
+--------------------- */
+
+$breakpoint-pc: 1200;
+$breakpoint-tb: 1024;
+$breakpoint-sp: 768;
+$main-font-color: #115F73;
+$mincho: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+$gothic: 'Noto Sans Japanese', "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+
+/*
+Noto Sans Japanese Weight
+100	Thin
+200	Light
+300	DemiLight
+400	Regular
+500	Medium
+700	Bold
+900	Black
+*/
+
+/* ソースサイズ */
+$pc-source-w: 1920;
+$sp-source-w: 375;
+$tb-source-w: 960;
+
+
+/* Mixin
+--------------------- */
+
+@mixin max-screen($breakpoint) {
+	@media screen and (max-width: $breakpoint + 'px') {
+		@content;
+	}
+}
+
+@mixin responsive($device, $property, $length) {
+	@if $device == sp {
+		#{$property}: $length / $sp-source-w * 100vw;
+	} @else if $device == tb {
+		#{$property}: $length / $tb-source-w * 100vw;
+	} @else if $device == pc {
+		#{$property}: $length / $pc-source-w * 100vw;
+	}
+}
+
+
+/* Extend
+--------------------- */
+
+/* Clearfix */
+%clearfix {
+	&::after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+}
+
+/* Ellipsis */
+%ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* PseudoTable */
+%pseudo-table {
+	display: table;
+	height: 100%;
+	width: 100%;
+	> * {
+		display: table-cell;
+		height: 100%;
+		text-align: center;
+		vertical-align: middle;
+		width: 100%;
+	}
+}
+
+/* Inner */
+%inner {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1168px;
+	padding-left: 24px;
+	padding-right: 24px;
+	position: relative;
+	width: 100%;
+	@include max-screen($breakpoint-sp) {
+		padding-left: 6.4vw;
+		padding-right: 6.4vw;
+	}
+}

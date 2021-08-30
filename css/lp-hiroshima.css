@@ -1,0 +1,407 @@
+@charset "UTF-8";
+/* Vars
+--------------------- */
+/*
+Noto Sans Japanese Weight
+100	Thin
+200	Light
+300	DemiLight
+400	Regular
+500	Medium
+700	Bold
+900	Black
+*/
+/* ソースサイズ */
+/* Mixin
+--------------------- */
+/* Extend
+--------------------- */
+/* Clearfix */
+/* Ellipsis */
+/* PseudoTable */
+/* Inner */
+.contents {
+  padding-bottom: 0;
+  position: relative;
+  margin-bottom: -4.6323529412%;
+}
+
+.footer {
+  background: #F1EFED;
+}
+
+.cmn-visual {
+  height: calc(768px + 2.1323529412vw);
+  padding-bottom: 2.1323529412vw;
+}
+.cmn-visual picture {
+  display: block;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+.cmn-visual img {
+  height: 100%;
+  max-width: 1360px;
+  width: 100%;
+}
+.cmn-visual::before {
+  display: none;
+}
+@media screen and (max-width: 1400px) {
+  .cmn-visual {
+    height: 56.9894957983vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cmn-visual {
+    height: 179.9990196079vw;
+  }
+}
+
+.lead {
+  margin: 0 auto;
+  max-width: 1160px;
+  padding: 0 20px;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .lead {
+    padding-left: 6.4vw;
+    padding-right: 6.4vw;
+  }
+}
+.lead > div {
+  border-bottom: #E6E6E6 1px solid;
+  padding: 48px 96px;
+}
+@media screen and (max-width: 1160px) {
+  .lead > div {
+    padding-left: 8.5714285714%;
+    padding-right: 8.5714285714%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .lead > div {
+    padding: 40px 0 12px;
+  }
+}
+.lead p {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+@media screen and (max-width: 768px) {
+  .lead p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.7625;
+  }
+}
+
+.hd1 {
+  font-size: 3.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.hd1 span {
+  font-size: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .hd1 span {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hd1 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+}
+
+.tag {
+  background: #24ADBF;
+  color: #fff;
+  font-size: 1.4rem;
+  left: 8px;
+  line-height: 1;
+  padding: 5px 16px;
+  position: absolute;
+  top: 8px;
+}
+
+.items {
+  display: flex;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1160px;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .items {
+    flex-direction: column;
+    padding-left: 6.4vw;
+    padding-right: 6.4vw;
+  }
+}
+
+.items__item {
+  background: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  margin-right: 2.8571428571%;
+  position: relative;
+  width: 31.4285714286%;
+}
+@media screen and (max-width: 768px) {
+  .items__item {
+    margin-bottom: 24px;
+    margin-right: 0;
+    width: 100%;
+  }
+  .items__item:last-child {
+    margin-bottom: 0;
+  }
+}
+.items__item:nth-child(3n) {
+  margin-right: 0;
+}
+.items__item figure img {
+  width: 100%;
+}
+.items__item p {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .items__item p {
+    font-size: 1.4rem;
+    line-height: 1.7;
+  }
+}
+
+.items__contents {
+  padding: 9.0909090909%;
+}
+@media screen and (max-width: 768px) {
+  .items__contents {
+    padding: 6.4vw 8.53vw 8.53vw;
+  }
+}
+
+.items__title {
+  color: #24ADBF;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+@media screen and (max-width: 768px) {
+  .items__title {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+  }
+}
+
+.culture {
+  background: url("../img/lp/hiroshima/culture_bg_01.jpg") 50% 100% no-repeat;
+  background-size: 100% auto;
+  padding-bottom: 23.5294117647%;
+  padding-top: 80px;
+}
+@media screen and (max-width: 768px) {
+  .culture {
+    background-size: 190% auto;
+    padding-bottom: 44.7058823529%;
+    padding-top: 40px;
+  }
+}
+
+.place {
+  margin: 0 auto;
+  max-width: 1160px;
+  padding: 80px 20px 0;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .place {
+    padding-left: 6.4vw;
+    padding-right: 6.4vw;
+    padding-top: 40px;
+  }
+}
+.place > div {
+  border-bottom: #E6E6E6 1px solid;
+  padding-bottom: 80px;
+}
+@media screen and (max-width: 768px) {
+  .place > div {
+    padding-bottom: 40px;
+  }
+}
+
+.place__cols {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+  .place__cols {
+    flex-direction: column-reverse;
+  }
+}
+.place__cols figure {
+  width: 48.5714285714%;
+}
+@media screen and (max-width: 768px) {
+  .place__cols figure {
+    margin-bottom: 24px;
+    width: 100%;
+  }
+}
+.place__cols figure img {
+  width: 100%;
+}
+.place__cols ul {
+  width: 48.5714285714%;
+}
+@media screen and (max-width: 768px) {
+  .place__cols ul {
+    width: 100%;
+  }
+}
+.place__cols li {
+  background: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  padding: 8.8235294118% 5.8823529412% 5.8823529412%;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .place__cols li {
+    margin-bottom: 24px;
+    padding: 12.8vw 8.5333333333vw 8.5333333333vw;
+  }
+}
+.place__cols li p {
+  margin-bottom: 0;
+}
+.place__cols li:last-child {
+  margin-bottom: 0;
+}
+
+.place__btn {
+  margin-top: 40px;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .place__btn {
+    margin-top: 24px;
+  }
+}
+
+.business {
+  margin: 0 auto;
+  max-width: 1160px;
+  padding: 80px 20px 0;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .business {
+    padding-left: 6.4vw;
+    padding-right: 6.4vw;
+    padding-top: 40px;
+  }
+}
+.business > div {
+  border-bottom: #E6E6E6 1px solid;
+  padding-bottom: 80px;
+}
+@media screen and (max-width: 768px) {
+  .business > div {
+    padding-bottom: 40px;
+  }
+}
+.business .items {
+  padding: 0;
+}
+
+.works {
+  margin: 0 auto;
+  max-width: 1160px;
+  padding: 80px 20px;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .works {
+    padding: 40px 6.4vw;
+  }
+}
+
+.works-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+.works-items li {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.8571428571%;
+  margin-right: 2.8571428571%;
+  width: 14.2857142857%;
+}
+@media screen and (max-width: 768px) {
+  .works-items li {
+    margin-bottom: 9.2024539877%;
+    margin-right: 9.2024539877%;
+    width: 45.3987730061%;
+  }
+  .works-items li:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+.works-items li:nth-child(6n) {
+  margin-right: 0;
+}
+.works-items li img {
+  width: 100%;
+}
+
+.contact {
+  height: 1244px;
+  background: url("../img/lp/hiroshima/contact_bg_02.svg") 50% 100% no-repeat, url("../img/lp/hiroshima/contact_bg_01.svg") 50% 100% no-repeat;
+  background-size: 100% auto, auto auto;
+  padding-top: 440px;
+}
+@media screen and (max-width: 1400px) {
+  .contact {
+    background-size: 100% auto, 100% 100%;
+    height: 88.8571428571vw;
+    padding-top: 31.4285714286vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contact {
+    height: 192.8vw;
+    background: url("../img/lp/hiroshima/contact_bg_02@sp.svg") 50% 100% no-repeat, url("../img/lp/hiroshima/contact_bg_01@sp.svg") 50% 100% no-repeat;
+    background-size: 100% auto, 100% 100%;
+    padding-top: 69.3333333333vw;
+    padding-left: 6.4vw;
+    padding-right: 6.4vw;
+  }
+}
+.contact p {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.6666666667;
+  text-align: center;
+}
+@media screen and (max-width: 1400px) {
+  .contact p {
+    font-size: 1.7142857143vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contact p {
+    text-align: left;
+    font-size: 1.6rem;
+  }
+}

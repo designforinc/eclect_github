@@ -1,0 +1,11 @@
+@charset "utf-8";
+@import "mixin";
+
+
+/* Lead
+--------------------- */
+
+.privacy-lead {
+	@extend %inner;
+	margin-bottom: 80px;
+}

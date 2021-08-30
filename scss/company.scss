@@ -1,0 +1,44 @@
+@charset "utf-8";
+@import "mixin";
+
+
+/* Visual
+--------------------- */
+
+.cmn-visual {
+	&::before {
+		background-image: url("../img/company/visual_img_01.svg");
+	}
+}
+
+.mod-table--row th {
+	width: 232px;
+}
+
+
+/* Map
+--------------------- */
+
+.company-map {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	@include max-screen($breakpoint-sp) {
+		flex-direction: column;
+	}
+}
+.company-map__address {
+	padding-right: 24px;
+	width: 100%;
+	@include max-screen($breakpoint-sp) {
+		margin-bottom: 24px;
+		padding-right: 0;
+	}
+}
+.company-map__btn {
+	flex-shrink: 0;
+	width: 80px;
+	@include max-screen($breakpoint-sp) {
+		width: 100%;
+	}
+}
