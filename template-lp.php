@@ -23,5 +23,6 @@ $body_class = ( $meta = get_post_meta( $post->ID, 'body_class', true ) ) ? $meta
 get_header();
 ?>
 <?php the_content(); ?>
+
 <?php get_footer(); ?>
 <?php endwhile; endif; ?>
