@@ -184,12 +184,12 @@ jQuery(function($) {
 			$('.header__gnav').hide();
 			$('.header').removeClass('opened');
 			$(this).removeClass('opened');
-			$('.header__logo img').attr('src', '/wp-content/themes/eclect/img/logo1.png');
+			$('.header__logo img').attr('src', '/wp-content/themes/eclect_github/img/logo1.png');
 		} else {
 			$('.header__gnav').show();
 			$('.header').addClass('opened');
 			$(this).addClass('opened');
-			$('.header__logo img').attr('src', '/wp-content/themes/eclect/img/logo2.png');
+			$('.header__logo img').attr('src', '/wp-content/themes/eclect_github/img/logo2.png');
 		}
 	});
 
@@ -256,14 +256,14 @@ jQuery(function($) {
 							$('.header__gnav').hide();
 							$('.header').removeClass('opened');
 							$('.header__btn-menu').removeClass('opened');
-							$('.header__logo img').attr('src', '/wp-content/themes/eclect/img/logo1.png');
+							$('.header__logo img').attr('src', '/wp-content/themes/eclect_github/img/logo1.png');
 						});
 					} else if (device == breakpoint_pc || device == 'pc' || device == 'tb') {
 						// デスクトップ or タブレット
 						$('.header__gnav').show();
 						$('.header').removeClass('opened');
 						$(this).removeClass('opened');
-						$('.header__logo img').attr('src', '/wp-content/themes/eclect/img/logo1.png');
+						$('.header__logo img').attr('src', '/wp-content/themes/eclect_github/img/logo1.png');
 
 						$('.mod-cols1, .mod-cols1--reverse').each(function() {
 							if (!$('.mod-cols1__col1', this).next('.mod-hd1').length) {
