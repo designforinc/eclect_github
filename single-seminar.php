@@ -146,7 +146,7 @@ if ( $n = get_post_meta( $post->ID, 'seminar_single_program', true ) ) {
 if ( $n = get_post_meta( $post->ID, 'seminar_single_lecturer', true ) ) {
 ?>
 			<section class="mod-sec">
-				<h2 class="mod-hd2">講師情報</h2>
+				<h2 class="mod-hd2">登壇者</h2>
 				<div class="seminar-sg-lecturers">
 <?php
 	for ( $i = 0; $i < $n; $i++ ) {

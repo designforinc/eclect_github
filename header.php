@@ -3,27 +3,35 @@ global $css;
 ?><!DOCTYPE HTML>
 <html lang="ja">
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110330334-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-110330334-1');
-</script>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="initial-scale=1">
 <meta name="format-detection" content="telephone=no">
-<meta name="keywords" content="株式会社エクレクト,eclect,えくれくと">
-<meta name="description" content="エクレクトは、カスタマーサービスソフトウェア『Zendesk』の公式認定資格を全て取得している日本唯一のパートナー企業です。導入支援・データ移行・テンプレート制作・関連アプリケーション開発・既存システムとの連携など、ワンストップでご提供しています。">
 <link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo( 'url' ); ?>/wp-content/uploads/2020/11/favicon.png" />
 <title></title>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_url' ); ?>/css/style.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_url' ); ?>/css/module.css">
 <?php if ( !empty ( $css ) ) echo $css; ?>
 <?php wp_head(); ?>
+	
+<!-- SMP Tracking Tag Ver 3 -->
+<script type="text/javascript">
+<!--
+(function(n){
+var w = window, d = document;
+w['ShanonCAMObject'] = n, w[n] = w[n] || function(){(w[n].q=w[n].q||[]).push(arguments)};
+w[n].date = 1*new Date();
+var e = d.createElement('script'), t = d.getElementsByTagName('script')[0];
+e.async = 1, e.type='text/javascript', e.charset='utf-8', e.src = 'https://tracker.shanon-services.com/static/js/cam3.js' + "?_=" + w[n].date;
+t.parentNode.insertBefore(e,t);
+})('_cam');
+
+_cam('create', 'aKEmwzyLJl-342', ['eclect.co.jp']);
+_cam('require', 'crossLinker');
+_cam('crossLinker:allLink', ['eclect.co.jp']);
+_cam('send');
+//-->
+</script>
 </head>
 
 <body>

@@ -23,43 +23,32 @@ Noto Sans Japanese Weight
 /* Visual
 --------------------- */
 .cmn-visual::before {
-  background-image: url("../img/company/visual_img_01.svg");
-}
+  background-image: url("../img/company/visual_img_01.svg"); }
 
 .mod-table--row th {
-  width: 232px;
-}
+  width: 232px; }
 
 /* Map
 --------------------- */
 .company-map {
   align-items: center;
   display: flex;
-  justify-content: space-between;
-}
-@media screen and (max-width: 768px) {
-  .company-map {
-    flex-direction: column;
-  }
-}
+  justify-content: space-between; }
+  @media screen and (max-width: 768px) {
+    .company-map {
+      flex-direction: column; } }
 
 .company-map__address {
   padding-right: 24px;
-  width: 100%;
-}
-@media screen and (max-width: 768px) {
-  .company-map__address {
-    margin-bottom: 24px;
-    padding-right: 0;
-  }
-}
+  width: 100%; }
+  @media screen and (max-width: 768px) {
+    .company-map__address {
+      margin-bottom: 24px;
+      padding-right: 0; } }
 
 .company-map__btn {
   flex-shrink: 0;
-  width: 80px;
-}
-@media screen and (max-width: 768px) {
-  .company-map__btn {
-    width: 100%;
-  }
-}
+  width: 80px; }
+  @media screen and (max-width: 768px) {
+    .company-map__btn {
+      width: 100%; } }

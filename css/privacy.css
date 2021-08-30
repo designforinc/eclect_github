@@ -27,17 +27,13 @@ Noto Sans Japanese Weight
   padding-left: 24px;
   padding-right: 24px;
   position: relative;
-  width: 100%;
-}
-@media screen and (max-width: 768px) {
-  .privacy-lead {
-    padding-left: 6.4vw;
-    padding-right: 6.4vw;
-  }
-}
+  width: 100%; }
+  @media screen and (max-width: 768px) {
+    .privacy-lead {
+      padding-left: 6.4vw;
+      padding-right: 6.4vw; } }
 
 /* Lead
 --------------------- */
 .privacy-lead {
-  margin-bottom: 80px;
-}
+  margin-bottom: 80px; }

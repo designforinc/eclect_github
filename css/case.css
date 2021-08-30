@@ -23,20 +23,18 @@ Noto Sans Japanese Weight
 /* Visual
 --------------------- */
 .cmn-visual::before {
-  background-image: url("../img/case/visual_img_01.svg");
-}
+  background-image: url("../img/case/visual_img_01.svg"); }
 
 /* Tag
 --------------------- */
-.case-tag, .mod-header__category, .case-items__item__tag {
+.case-tag, .case-items__item__tag, .mod-header__category {
   background: #24ADBF;
   color: #fff;
   font-size: 1.4rem;
   line-height: 1;
   min-width: 50px;
   padding: 5px 16px;
-  text-align: center;
-}
+  text-align: center; }
 
 /* items
 --------------------- */
@@ -44,67 +42,50 @@ Noto Sans Japanese Weight
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-bottom: -2.8571428571%;
-}
-@media screen and (max-width: 768px) {
-  .case-items {
-    flex-direction: column;
-    margin-bottom: 0;
-  }
-}
+  margin-bottom: -2.8571428571%; }
+  @media screen and (max-width: 768px) {
+    .case-items {
+      flex-direction: column;
+      margin-bottom: 0; } }
 
 .case-items__item {
   background: #FFF;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
   margin: 0 2.8571428571% 2.8571428571% 0;
   position: relative;
-  width: 48.5714285714%;
-}
-@media screen and (max-width: 768px) {
-  .case-items__item {
-    margin: 0 0 24px;
-    width: 100%;
-  }
-}
-.case-items__item:nth-child(2n) {
-  margin-right: 0;
-}
-@media screen and (max-width: 768px) {
-  .case-items__item:last-child {
-    margin-bottom: 0;
-  }
-}
-.case-items__item figure img {
-  width: 100%;
-}
+  width: 48.5714285714%; }
+  @media screen and (max-width: 768px) {
+    .case-items__item {
+      margin: 0 0 24px;
+      width: 100%; } }
+  .case-items__item:nth-child(2n) {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    .case-items__item:last-child {
+      margin-bottom: 0; } }
+  .case-items__item figure img {
+    width: 100%; }
 
 .case-items__item__inner {
-  padding: 24px 32px 116.8px;
-}
-@media screen and (max-width: 768px) {
-  .case-items__item__inner {
-    padding: 24px 32px 32px;
-  }
-}
+  padding: 24px 32px 116.8px; }
+  @media screen and (max-width: 768px) {
+    .case-items__item__inner {
+      padding: 24px 32px 32px; } }
 
 .case-items__item__tag {
   left: 8px;
   position: absolute;
-  top: 8px;
-}
+  top: 8px; }
 
 .case-items__item__title {
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.2;
-  margin-bottom: 16px;
-}
-@media screen and (max-width: 768px) {
-  .case-items__item__title {
-    font-size: 1.8rem;
-    line-height: 1.2;
-  }
-}
+  margin-bottom: 16px; }
+  @media screen and (max-width: 768px) {
+    .case-items__item__title {
+      font-size: 1.8rem;
+      line-height: 1.2; } }
 
 .case-items__item__company {
   bottom: 72px;
@@ -112,33 +93,27 @@ Noto Sans Japanese Weight
   height: 44.8px;
   margin-bottom: 0;
   overflow: hidden;
-  position: absolute;
-}
-@media screen and (max-width: 768px) {
-  .case-items__item__company {
-    bottom: 0;
-    font-size: 1.4rem;
-    height: auto;
-    left: 0;
-    margin-bottom: 16px;
-    position: relative;
-  }
-}
+  position: absolute; }
+  @media screen and (max-width: 768px) {
+    .case-items__item__company {
+      bottom: 0;
+      font-size: 1.4rem;
+      height: auto;
+      left: 0;
+      margin-bottom: 16px;
+      position: relative; } }
 
 .case-items__item__btn {
   bottom: 32px;
   left: 32px;
   position: absolute;
-  width: calc(100% - 64px);
-}
-@media screen and (max-width: 768px) {
-  .case-items__item__btn {
-    bottom: 0;
-    left: 0;
-    position: relative;
-    width: 100%;
-  }
-}
+  width: calc(100% - 64px); }
+  @media screen and (max-width: 768px) {
+    .case-items__item__btn {
+      bottom: 0;
+      left: 0;
+      position: relative;
+      width: 100%; } }
 
 /* Single
 --------------------- */
@@ -146,11 +121,8 @@ Noto Sans Japanese Weight
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 1.2;
-  margin-bottom: 40px;
-}
-@media screen and (max-width: 768px) {
-  .case-sg-hd {
-    font-size: 1.8rem;
-    margin-bottom: 24px;
-  }
-}
+  margin-bottom: 40px; }
+  @media screen and (max-width: 768px) {
+    .case-sg-hd {
+      font-size: 1.8rem;
+      margin-bottom: 24px; } }
