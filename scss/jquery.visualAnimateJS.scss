@@ -210,24 +210,29 @@ ul.visual-animate__dot {
 /* deactivate */
 .deactivate {
 	.visual-animate {
-		height: 100%!important;
+		height: auto!important;
 		ul {
-			height: 100%;
-			width: 100%!important;
+			height: auto;
+			position: relative;
+			width: auto!important;
 			li {
-				display: none!important;
-				height: 100%!important;
+				height: auto!important;
+				figure {
+					display: block;
+				}
 			}
 		}
 	}
 	.visual-animate__layer {
-		height: 100%;
+		height: auto;
+		overflow: unset;
 	}
 	.visual-animate__layer__inner {
-		height: 100%;
+		height: auto;
+		overflow: unset;
 	}
 	.visual-animate__contents {
-		height: 100%;
+		height: auto;
 	}
 	.visual-animate__btn-prev,
 	.visual-animate__btn-next {

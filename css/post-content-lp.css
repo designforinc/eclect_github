@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/* Vars
+--------------------- */
+/*
+Noto Sans Japanese Weight
+100	Thin
+200	Light
+300	DemiLight
+400	Regular
+500	Medium
+700	Bold
+900	Black
+*/
+/* ソースサイズ */
+/* Mixin
+--------------------- */
+/* Extend
+--------------------- */
+/* Clearfix */
+/* Ellipsis */
+/* PseudoTable */
+/* Inner */
+.post-content img {
+  box-shadow: none;
+}
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    font-size: 1.8rem;
+  }
+}
+.post-content p {
+  font-size: 1.6rem;
+  margin: 0 0 40px;
+}
+.post-content ul {
+  background: #fff;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+  font-size: 1.8rem;
+  font-weight: 700;
+  list-style-type: none;
+  padding: 0;
+}
+@media screen and (max-width: 768px) {
+  .post-content ul {
+    font-size: 1.6rem;
+  }
+}
+.post-content ul li {
+  border-bottom: 1px solid #E6E6E6;
+  line-height: 1.2;
+  margin-bottom: 0;
+  padding: 24px 24px 24px 104px;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .post-content ul li {
+    padding: 4.2666666667vw 4.2666666667vw 4.2666666667vw 14.9333333333vw;
+  }
+}
+.post-content ul li:last-child {
+  border-bottom: 0;
+}
+.post-content ul li::before {
+  align-items: center;
+  background: #115F73;
+  content: "";
+  color: #fff;
+  display: flex;
+  font-family: "Font Awesome 5 Pro";
+  font-size: 4rem;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 80px;
+}
+@media screen and (max-width: 768px) {
+  .post-content ul li::before {
+    font-size: 2.4rem;
+    width: 10.6666666667vw;
+  }
+}
+.post-content > *:last-child {
+  margin-bottom: 0 !important;
+}

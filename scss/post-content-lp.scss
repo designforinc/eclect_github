@@ -1,0 +1,71 @@
+@charset "utf-8";
+@import "mixin";
+
+.post-content {
+	img {
+		box-shadow: none;
+	}
+	h1,
+	h2,
+	h3,
+	h4 {
+		font-size: 2.4rem;
+		font-weight: 500;
+		line-height: 1.2;
+		margin-bottom: 24px;
+		text-align: center;
+		@include max-screen($breakpoint-sp) {
+			font-size: 1.8rem;
+		}
+	}
+	p {
+		font-size: 1.6rem;
+		margin: 0 0 40px;
+	}
+	ul {
+		background: #fff;
+		box-shadow: 0 0 6px 0 rgba(0,0,0,.1);
+		font-size: 1.8rem;
+		font-weight: 700;
+		list-style-type: none;
+		padding: 0;
+		@include max-screen($breakpoint-sp) {
+			font-size: 1.6rem;
+		}
+		li {
+			border-bottom: 1px solid #E6E6E6;
+			line-height: 1.2;
+			margin-bottom: 0;
+			padding: 24px 24px 24px 104px;
+			position: relative;
+			@include max-screen($breakpoint-sp) {
+				padding: ((16vw / 375) * 100) ((16vw / 375) * 100) ((16vw / 375) * 100) ((56vw / 375) * 100);
+			}
+			&:last-child {
+				border-bottom: 0;
+			}
+			&::before {
+				align-items: center;
+				background: #115F73;
+				content: '\f00c';
+				color: #fff;
+				display: flex;
+				font-family: 'Font Awesome 5 Pro';
+				font-size: 4rem;
+				height: 100%;
+				justify-content: center;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 80px;
+				@include max-screen($breakpoint-sp) {
+					font-size: 2.4rem;
+					width: ((40vw / 375) * 100);
+				}
+			}
+		}
+	}
+	> *:last-child {
+		margin-bottom: 0!important;
+	}
+}

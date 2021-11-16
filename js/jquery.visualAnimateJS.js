@@ -12,18 +12,19 @@
 			deactivate_width: false,// スライダーを無効化するデバイスの幅
 			highlight: false,// 前後のスライドにマスクをかける
 			delay: 0,// 自動スタートのタイミングを遅らせる
-			sp_bp: 560,// スマートフォンのブレークポイント
+			sp_bp: 600,// スマートフォンのブレークポイント
 			zoom_type: 'in',// zoom の時の方向
 			loop: true,// 折り返しの処理
 			type: 'copy',//copy:複製する/pos:位置を移動する
 			thumbnail: '',// サムネイルのセレクター
-			slide_click: true,// スライドをクリックすると次へ
+			slide_click: false,// スライドをクリックすると次へ
 			prev_btn_class: '',
 			next_btn_class: '',
 			distance: 1,// 一度にスライドさせる毎数
 			colindex: 0,// int or obj ex.{560:1,960:3,9999:5},
 			multicolumn: 1,// int or obj ex.{560:1,960:3,9999:5},
 			swaip: true,// スワイプを有効にする
+			align_left: false,// マルチカラムのときセルをセンタリングではなく左揃えにする
 		}, options);
 
 		return this.each(function() {
@@ -35,6 +36,7 @@
 			var ul_obj = $('.visual-animate__slider', target);
 			var slwidth;
 			var margin = 0;
+			var column = 1;
 			var len = ul_obj.find('> li').length;
 			var resizeTimer = false;
 			var winW, winW_old, activate;
@@ -46,6 +48,25 @@
 			var device_old;
 			var _ua;
 			var clickEventType;
+
+			var get_column = function(winW) {
+				if (typeof options.multicolumn === 'object') {
+					var flen = Object.keys(options.multicolumn).length;
+					for (let i = 0; i < flen; i++) {
+						let device_width = Object.keys(options.multicolumn)[i];
+						if (winW <= device_width) {
+							column = options.multicolumn[device_width];
+							//return true;
+							break;
+						}
+					}
+				} else {
+					column = options.multicolumn;
+				}
+			};
+
+			if (options.loop == false)
+				options.type = false;
 
 			var get_ua = function() {
 				_ua = (function(u) {
@@ -228,14 +249,28 @@
 			var dotClick = function() {
 				if (typeof slideTimer !== 'undefined') clearTimeout(slideTimer);
 				colindex = $('ul.visual-animate__dot li', target).index(this);
+				colindex = colindex + default_colindex;
 				dotAnimate();
+			};
+
+			// ドットをリセット
+			var dotReset = function() {
+				if (options.dot) {
+					$('ul.visual-animate__dot li', target).removeClass('current');
+					$($('ul.visual-animate__dot li', target)[0]).addClass('current');
+				}
 			};
 
 			// ドットの現在位置処理
 			var doting = function() {
+				var index;
+				if ( colindex < default_colindex )
+					index = len - default_colindex + colindex;
+				else
+					index = colindex - default_colindex;
 				if (options.dot) {
 					$('ul.visual-animate__dot li', target).removeClass('current');
-					$($('ul.visual-animate__dot li', target)[colindex]).addClass('current');
+					$($('ul.visual-animate__dot li', target)[index]).addClass('current');
 				}
 			};
 
@@ -315,7 +350,7 @@
 			var numing = function() {
 				$(target).data('current-index', colindex);
 				if (options.num)
-					$('.visual-animate__num span', target).html((colindex + 1) + '/' + len);
+					$('.visual-animate__num span', target).html((colindex + 1) + ' / ' + len);
 			};
 
 			// animate:slide 開始処理
@@ -354,6 +389,7 @@
 						slideTimer = setTimeout(slideStart, options.interval + options.speed);
 						break;
 				}
+
 				ul_obj
 					.animate({
 						left: leftp
@@ -394,7 +430,7 @@
 						doting();
 						numing();
 
-						if (!options.type || options.type == 'pos') {
+						if ((!options.type || options.type == 'pos') && options.loop) {
 							// 最後のスライドのとき、
 							if (colindex === len - 1) {
 								// 最後のスライドを最後に移動
@@ -436,6 +472,7 @@
 
 						thumbnail_add_current(colindex);
 					});
+
 				if (options.cont_anim) {
 					if (type == 'dot') {
 						ul_obj.find('> li .visual-animate__contents').animate(contents_style_hide, 1000, 'swing', function() {
@@ -528,7 +565,7 @@
 								$(this).css('transform', 'scale(' + (scale_val - (s * 0.2)) + ')');
 							if (s >= (1 - options.speed / (options.interval + options.speed * 2)) && !flg) {
 								flg = true;
-								if (len > 1 && options.autoStart) {
+								if (len > column && options.autoStart) {
 									$('.visual-animate__bg', this).fadeOut(options.speed, 'swing', function() {
 										$(this).parents('li').first().hide();
 									});
@@ -655,13 +692,15 @@
 			};
 			
 			var set_btns = function(winW, activate) {
+				var column;
 				if (activate == 'activate') {
 					if (typeof options.multicolumn === 'object') {
 						var flen = Object.keys(options.multicolumn).length;
 						for (let i = 0; i < flen; i++) {
 							let device_width = Object.keys(options.multicolumn)[i];
 							if (winW <= device_width) {
-								if (len <= options.multicolumn[device_width]) {
+								column = options.multicolumn[device_width];
+								if (len <= column) {
 									prev_btn.hide();
 									next_btn.hide();
 								} else {
@@ -672,11 +711,13 @@
 										prev_btn.hide();
 									next_btn.show();
 								}
-								return true;
+								//return true;
+								break;
 							}
 						}
 					} else {
-						if (len <= options.multicolumn) {
+						column = options.multicolumn;
+						if (len <= column) {
 							prev_btn.hide();
 							next_btn.hide();
 						} else {
@@ -706,6 +747,8 @@
 								return true;
 							}
 						}
+					} else {
+						colindex = options.colindex;
 					}
 				}
 			};
@@ -737,11 +780,6 @@
 			}
 			ul_obj.addClass(options.animate);
 
-			// 前後のスライドにマスクをかける
-			if (options.highlight) {
-				$(target).append('<div class="visual-animate__overlay visual-animate__overlay--left"></div><div class="visual-animate__overlay visual-animate__overlay--right"></div>');
-			}
-
 			// 最初と最後のスライドにクラスを付与する
 			ul_obj.find('> li:first-child').addClass('visual-animate__first');
 			ul_obj.find('> li:last-child').addClass('visual-animate__last');
@@ -761,7 +799,29 @@
 								activate_old = activate;
 								if (typeof (winW = window.innerWidth) === 'undefined')
 									winW = $(document).outerWidth();
+
 								if (winW_old !== winW) {
+									get_column(winW);
+	
+									if (options.type == 'copy' && len > column && options.loop == true) {
+										var html = ul_obj.html();
+										html = html.replace(/<li ([^>]*?)class="([^\"]+)"([^>]*?)>/g, '<li $1class="$2 copy"$3>');
+										html = html.replace(/<li>/g, '<li class="copy">');
+				
+										if (!$('li.copy', target).length) {
+											if (column < len) {
+												ul_obj
+													.append(html)
+													.append(html);
+											}
+										}
+	
+										$('ul.visual-animate__dot', target).show();
+									} else {
+										$('li.copy', target).remove();
+										//$('ul.visual-animate__dot', target).hide();
+									}
+
 									ul_obj.stop(true, true);
 
 									activate = ((deactivate_operator && deactivate_width) && (deactivate_operator == '>' && winW > deactivate_width) || (deactivate_operator == '<' && winW < deactivate_width)) ? 'deactivate' : 'activate';
@@ -777,10 +837,11 @@
 										// 無効化クラス付与
 										$(target).parent().addClass('deactivate');
 
-										$(target).outerHeight('auto');
+										//$(target).outerHeight('auto');
 										ul_obj
-											.outerWidth('100%')
-											.find('> li').outerHeight('auto');
+											.outerWidth('100%');
+											//.find('> li').outerHeight('auto');
+										colindex = 0;
 									} else {
 										get_ua();
 
@@ -793,21 +854,34 @@
 										$(target).outerHeight('100%');
 
 										if (options.type == 'copy') {
-											startp = (slwidth + margin) * len;
+											startp = (slwidth + margin) * len + (options.align_left ? column / 2 * (slwidth + margin) - slwidth / 2 - margin / 2 : 0);
+											if (len > column) {
+												ul_obj.css('left', '-' + ((slwidth + margin) * len + (slwidth + margin) * colindex) - (options.align_left ? column / 2 * (slwidth + margin) - slwidth / 2 - margin / 2 : 0));
+											} else {
+												ul_obj.css('left', $(target).width() / -2 + slwidth / 2 + (options.align_left ? 0 : (column - len) / 2 * (slwidth + margin)));
+											}
 											ul_obj
-												.css('left', '-' + ((slwidth + margin) * len + (slwidth + margin) * colindex) + 'px')
 												.outerWidth((slwidth + margin) * len * 3)
 												.find('> li').outerWidth(slwidth);
 										} else if (!options.type || options.type == 'pos') {
 											startp = (slwidth + margin) * -1;
+											if (len > column) {
+												if (options.loop) {
+													ul_obj
+														.css('left', startp)
+														.find('.visual-animate__last').insertBefore(ul_obj.find('> li:first-child'));
+												} else {
+													ul_obj.css('left', '0');
+												}
+											} else {
+												ul_obj.css('left', '0');
+											}
 											ul_obj
-												.css('left', startp)
 												.outerWidth((slwidth + margin) * len)
 												.find('> li').outerWidth(slwidth);
-											ul_obj.find('.visual-animate__last').insertBefore(ul_obj.find('> li:first-child'));
 										}
 
-										if (len > 1 && options.autoStart)
+										if (len > column && options.autoStart)
 											slideTimer = setTimeout(startAnimation, options.interval + options.speed);
 										if (!options.to_bg) {
 											ul_obj.find('> li').css('height', 'auto');
@@ -825,15 +899,23 @@
 													.css(contents_style_show);
 											prev_btn.hide();
 											next_btn.hide();
-											$('ul.visual-animate__dot', target).hide();
-											$('.visual-animate__num', target).hide();
+
+											if (options.type == 'copy' && len > column && options.loop == true) {
+												$('ul.visual-animate__dot', target).hide();
+												$('.visual-animate__num', target).hide();
+											}
+
 											if (options.type == 'copy') {
 												$('li.copy', target).hide();
 											}
 										} else if (activate == 'activate') {
 											addClickEvent();
-											$('ul.visual-animate__dot', target).show();
-											$('.visual-animate__num', target).show();
+
+											if (options.type == 'copy' && len > column && options.loop == true) {
+												$('ul.visual-animate__dot', target).show();
+												$('.visual-animate__num', target).show();
+											}
+
 											if (options.type == 'copy') {
 												$('li.copy', target).show();
 											}
@@ -850,13 +932,29 @@
 										if ((device && device != device_old) || !device) {
 											removeClickEvent();
 											addClickEvent();
-											to_bg();
+											if (activate == 'activate')
+												to_bg();
 										}
 									}
 
 									// srcset 属性があれば
 									if (ul_obj.find('> li figure img').attr('srcset')) {
-										to_bg();
+										if (activate == 'activate')
+											to_bg();
+									}
+
+									// ドットをリセット
+									dotReset();
+
+									// サムネイルをリセット
+									if (options.thumbnail) {
+										$(options.thumbnail).removeClass('current');
+										$($(options.thumbnail)[0]).addClass('current');
+									}
+
+									// 番号をリセット
+									if (options.num) {
+										$('.visual-animate__num').html('<div class=""><span>1/' + len + '</span></div>');
 									}
 								}
 							}, 0);
@@ -883,6 +981,9 @@
 								activate_old = activate;
 								if (typeof (winW = window.innerWidth) === 'undefined')
 									winW = $(document).outerWidth();
+
+								get_column(winW);
+	
 								slwidth = $('.visual-animate__layer__inner', target).outerWidth();
 								if (winW_old !== winW) {
 									activate = ((deactivate_operator && deactivate_width) && (deactivate_operator == '>' && winW > deactivate_width) || (deactivate_operator == '<' && winW < deactivate_width)) ? 'deactivate' : 'activate';
@@ -908,17 +1009,23 @@
 											ul_obj.find('> li').first().find('.visual-animate__contents').css('opacity', 1);
 											prev_btn.hide();
 											next_btn.hide();
-											$('ul.visual-animate__dot', target).hide();
-											$('.visual-animate__num', target).hide();
+
+											if (options.type == 'copy' && len > column && options.loop == true) {
+												$('ul.visual-animate__dot', target).hide();
+												$('.visual-animate__num', target).hide();
+											}
 										} else if (activate == 'activate') {
 											addClickEvent();
-											if (len > 1 && options.autoStart)
+											if (len > column && options.autoStart)
 												slideTimer = setTimeout(startAnimation, options.interval);
 
 											ul_obj.find('> li').hide();
 											$(ul_obj.find('> li')[colindex]).show();
-											$('ul.visual-animate__dot', target).show();
-											$('.visual-animate__num', target).show();
+
+											if (options.type == 'copy' && len > column && options.loop == true) {
+												$('ul.visual-animate__dot', target).show();
+												$('.visual-animate__num', target).show();
+											}
 										}
 									}
 
@@ -931,14 +1038,19 @@
 										if ((device && device != device_old) || !device) {
 											removeClickEvent();
 											addClickEvent();
-											to_bg();
+											if (activate == 'activate')
+												to_bg();
 										}
 									}
 
 									// srcset 属性があれば
 									if (ul_obj.find('> li figure img').attr('srcset')) {
-										to_bg();
+										if (activate == 'activate')
+											to_bg();
 									}
+
+									// ドットをリセット
+									dotReset();
 								}
 							}, 0);
 						} else {
@@ -964,6 +1076,9 @@
 								activate_old = activate;
 								if (typeof (winW = window.innerWidth) === 'undefined')
 									winW = $(document).outerWidth();
+
+								get_column(winW);
+	
 								slwidth = $('.visual-animate__layer__inner', target).outerWidth();
 								if (winW_old !== winW) {
 									activate = ((deactivate_operator && deactivate_width) && (deactivate_operator == '>' && winW > deactivate_width) || (deactivate_operator == '<' && winW < deactivate_width)) ? 'deactivate' : 'activate';
@@ -990,11 +1105,14 @@
 													.show();
 											prev_btn.hide();
 											next_btn.hide();
-											$('ul.visual-animate__dot', target).hide();
-											$('.visual-animate__num', target).hide();
+
+											if (options.type == 'copy' && len > column && options.loop == true) {
+												$('ul.visual-animate__dot', target).hide();
+												$('.visual-animate__num', target).hide();
+											}
 										} else if (activate == 'activate') {
 											addClickEvent();
-											if (len > 1 && options.autoStart) {
+											if (len > column && options.autoStart) {
 												startAnimation();
 											} else {
 												ul_obj.find('> li').hide();
@@ -1005,8 +1123,11 @@
 														.find('.visual-animate__contents')
 															.css(contents_style_show);
 											}
-											$('ul.visual-animate__dot', target).show();
-											$('.visual-animate__num', target).show();
+
+											if (options.type == 'copy' && len > column && options.loop == true) {
+												$('ul.visual-animate__dot', target).show();
+												$('.visual-animate__num', target).show();
+											}
 										}
 									}
 
@@ -1019,14 +1140,19 @@
 										if ((device && device != device_old) || !device) {
 											removeClickEvent();
 											addClickEvent();
-											to_bg();
+											if (activate == 'activate')
+												to_bg();
 										}
 									}
 
 									// srcset 属性があれば
 									if (ul_obj.find('> li figure img').attr('srcset')) {
-										to_bg();
+										if (activate == 'activate')
+											to_bg();
 									}
+
+									// ドットをリセット
+									dotReset();
 								}
 							}, 0);
 						} else {
@@ -1042,15 +1168,6 @@
 					slwidth = $('.visual-animate__layer__inner', target).outerWidth();
 					$(window).on('resize orientationchange', load_slide);
 					load_slide();
-
-					if (options.type == 'copy') {
-						var html = ul_obj.html();
-						html = html.replace(/<li ([^>]*?)class="([^\"]+)"([^>]*?)>/g, '<li $1class="$2 copy"$3>');
-						html = html.replace(/<li>/g, '<li class="copy">');
-						ul_obj
-							.append(html)
-							.append(html);
-					}
 
 					$(ul_obj.find('> li')[len]).find('.visual-animate__contents').css('opacity', 1);
 					break;
@@ -1081,7 +1198,12 @@
 				to_bg();
 			}
 
-			if (len > options.multicolumn) {
+			// 前後のスライドにマスクをかける
+			if (options.highlight && len > column) {
+				$(target).append('<div class="visual-animate__overlay visual-animate__overlay--left"></div><div class="visual-animate__overlay visual-animate__overlay--right"></div>');
+			}
+
+			if (len > column) {
 				if (options.dot && !$('ul.visual-animate__dot', target).length) {
 					$(target).append('<ul class="visual-animate__dot"></ul>');
 					for (i = 0; i < len; i++) {
@@ -1098,6 +1220,24 @@
 				prev_btn.hide();
 				next_btn.hide();
 			}
+
+			// 最初に戻す
+			/*
+			if ($('.visual-animate__btn-back').length) {
+				$('.visual-animate__btn-back').on('click', function() {
+					$('.visual-animate__btn-back').hide();
+					$('.visual-animate__btn-prev').hide();
+					$('.visual-animate__btn-next').hide();
+					ul_obj.animate({
+						left: 0
+					}, options.speed, 'swing', function() {
+						colindex = 0;
+						slideStartPos = 0;
+						$('.visual-animate__btn-next').show();
+					});
+				});
+			}
+			*/
 		});
 	};
 })(jQuery);

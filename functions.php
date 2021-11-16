@@ -202,6 +202,8 @@ function mytheme_switch_editor_style() {
 	if ( $post->post_type == 'page' ) {
 		if ( file_exists ( dirname ( __FILE__ ) . '/css/' . get_post_field( 'post_name', $post->ID ) . '.css' ) )
 			add_editor_style( get_bloginfo( 'template_url' ) . '/css/' . get_post_field( 'post_name', $post->ID ) . '.css' );
+	} elseif ( $post->post_type == 'lp' ) {
+		add_editor_style( get_bloginfo( 'template_url' ) . '/css/post-content-lp.css' );
 	}
 }
 add_action( 'admin_head-post.php', 'mytheme_switch_editor_style' );
@@ -211,6 +213,10 @@ add_action( 'admin_head-post-new.php', 'mytheme_switch_editor_style' );
 function mytheme_enqueue_post_content_style() {
 	if ( is_single() ) {
 		wp_enqueue_style( 'post-content', get_bloginfo( 'template_url' ) . '/css/post-content.css' );
+
+		if ( get_post_type( get_the_ID() ) == 'lp' ) {
+			wp_enqueue_style( 'post-content-lp', get_bloginfo( 'template_url' ) . '/css/post-content-lp.css' );
+		}
 	}
 }
 add_action( 'wp_enqueue_scripts', 'mytheme_enqueue_post_content_style' );
