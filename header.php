@@ -7,6 +7,7 @@ global $css;
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="initial-scale=1">
 <meta name="format-detection" content="telephone=no">
+<meta name="facebook-domain-verification" content="bpivmunca47y0r33qblljvcjxspdzg" />
 <link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo( 'url' ); ?>/wp-content/uploads/2020/11/favicon.png" />
 <title></title>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_url' ); ?>/css/style.css">
