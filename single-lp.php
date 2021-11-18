@@ -48,7 +48,7 @@ if ( $meta = get_post_meta( $post->ID, 'lp_section_' . $n . '_heading', true ) )
 		} else if ( $type == 'free' ) {
 			if ( !get_post_meta( $post->ID, 'lp_section_' . $n . '_display', true ) ) {
 ?>
-	<section class="section free<?php echo get_post_meta( $post->ID, 'lp_section_' . $n . '_bg_color', true ) ? ' lp-bg' : ''; ?> lp-w<?php echo get_post_meta( $post->ID, 'lp_section_' . $n . '_width', true ); ?><?php echo get_post_meta( $post->ID, 'lp_section_' . $n . '_padding_top', true ) ? ' lp-pt0' : ''; ?><?php echo get_post_meta( $post->ID, 'lp_section_' . $n . '_padding_bottom', true ) ? ' lp-pb0' : ''; ?>"><div>
+	<section class="section free<?php echo get_post_meta( $post->ID, 'lp_section_' . $n . '_bg_color', true ) ? ' lp-bg' : ''; ?><?php echo get_post_meta( $post->ID, 'lp_section_' . $n . '_width', true ) ? ' lp-w736' : ' lp-w1120'; ?><?php echo get_post_meta( $post->ID, 'lp_section_' . $n . '_padding_top', true ) ? ' lp-pt0' : ''; ?><?php echo get_post_meta( $post->ID, 'lp_section_' . $n . '_padding_bottom', true ) ? ' lp-pb0' : ''; ?>"><div>
 <?php
 if ( $meta = get_post_meta( $post->ID, 'lp_section_' . $n . '_heading', true ) ) {
 ?>
